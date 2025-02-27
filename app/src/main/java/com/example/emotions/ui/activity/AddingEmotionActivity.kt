@@ -53,22 +53,22 @@ class AddingEmotionActivity : AppCompatActivity() {
 
         with(binding) {
             val emotions = listOf(
-                Emotion("Ярость", "Сильное чувство гнева, сопровождающееся агрессией", EmotionColor.RED),
-                Emotion("Напряжение", "Ощущение стресса и внутреннего давления", EmotionColor.RED),
-                Emotion("Возбуждение", "Состояние повышенной активности и бодрствования", EmotionColor.YELLOW),
-                Emotion("Восторг", "Интенсивное чувство радости и восхищения", EmotionColor.YELLOW),
-                Emotion("Зависть", "Желание иметь то, что есть у других, с оттенком недовольства", EmotionColor.RED),
-                Emotion("Беспокойство", "Чувство тревоги и волнения о чём-либо", EmotionColor.RED),
-                Emotion("Уверенность", "Ощущение внутренней силы и веры в свои способности", EmotionColor.YELLOW),
-                Emotion("Счастье", "Общее состояние удовлетворения и радости", EmotionColor.YELLOW),
-                Emotion("Выгорание", "Чувство эмоционального и физического истощения", EmotionColor.BLUE),
-                Emotion("Усталость", "Ощущение, что необходимо отдохнуть", EmotionColor.BLUE),
-                Emotion("Спокойствие", "Состояние внутреннего равновесия и умиротворённости", EmotionColor.GREEN),
-                Emotion("Удовлетворённость", "Чувство довольства достигнутым", EmotionColor.GREEN),
-                Emotion("Депрессия", "Состояние подавленности, потери интереса и энергии", EmotionColor.BLUE),
-                Emotion("Апатия", "Безразличие к окружающему, отсутствие мотивации", EmotionColor.BLUE),
-                Emotion("Благодарность", "Чувство признательности за что-то хорошее", EmotionColor.GREEN),
-                Emotion("Защищённость", "Ощущение безопасности и комфорта", EmotionColor.GREEN)
+                Emotion("Ярость", "Сильное чувство гнева, сопровождающееся агрессией", EmotionColor.RED, R.drawable.ic_rage),
+                Emotion("Напряжение", "Ощущение стресса и внутреннего давления", EmotionColor.RED, R.drawable.ic_stress),
+                Emotion("Возбуждение", "Состояние повышенной активности и бодрствования", EmotionColor.YELLOW, R.drawable.ic_excitement),
+                Emotion("Восторг", "Интенсивное чувство радости и восхищения", EmotionColor.YELLOW, R.drawable.ic_delight),
+                Emotion("Зависть", "Желание иметь то, что есть у других, с оттенком недовольства", EmotionColor.RED, R.drawable.ic_envy),
+                Emotion("Беспокойство", "Чувство тревоги и волнения о чём-либо", EmotionColor.RED, R.drawable.ic_anxiety),
+                Emotion("Уверенность", "Ощущение внутренней силы и веры в свои способности", EmotionColor.YELLOW, R.drawable.ic_confidence),
+                Emotion("Счастье", "Общее состояние удовлетворения и радости", EmotionColor.YELLOW, R.drawable.ic_happinness),
+                Emotion("Выгорание", "Чувство эмоционального и физического истощения", EmotionColor.BLUE, R.drawable.ic_burnout),
+                Emotion("Усталость", "Ощущение, что необходимо отдохнуть", EmotionColor.BLUE, R.drawable.ic_fatigue),
+                Emotion("Спокойствие", "Состояние внутреннего равновесия и умиротворённости", EmotionColor.GREEN, R.drawable.ic_calm),
+                Emotion("Удовлетворённость", "Чувство довольства достигнутым", EmotionColor.GREEN, R.drawable.ic_satisfaction),
+                Emotion("Депрессия", "Состояние подавленности, потери интереса и энергии", EmotionColor.BLUE, R.drawable.ic_depression),
+                Emotion("Апатия", "Безразличие к окружающему, отсутствие мотивации", EmotionColor.BLUE, R.drawable.ic_apathy),
+                Emotion("Благодарность", "Чувство признательности за что-то хорошее", EmotionColor.GREEN, R.drawable.ic_gratitude),
+                Emotion("Защищённость", "Ощущение безопасности и комфорта", EmotionColor.GREEN, R.drawable.ic_security)
             )
 
             gridLayout = emotionsGrid
