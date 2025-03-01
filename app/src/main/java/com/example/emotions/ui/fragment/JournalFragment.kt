@@ -3,18 +3,18 @@ package com.example.emotions.ui.fragment
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.content.Intent
-import android.graphics.Rect
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.emotions.databinding.FragmentJournalBinding
-import com.example.emotions.domain.model.SavedEmotion
 import com.example.emotions.domain.model.EmotionColor
+import com.example.emotions.domain.model.SavedEmotion
+import com.example.emotions.presentation.SpaceItemDecoration
 import com.example.emotions.presentation.adapter.EmotionListAdapter
+import com.example.emotions.presentation.dpToPx
 import com.example.emotions.ui.activity.AddingEmotionActivity
 
 class JournalFragment : Fragment() {
@@ -36,7 +36,7 @@ class JournalFragment : Fragment() {
         binding.emotionsRecycler.layoutManager = LinearLayoutManager(requireContext())
         adapter = EmotionListAdapter()
         binding.emotionsRecycler.adapter = adapter
-        binding.emotionsRecycler.addItemDecoration(SpaceItemDecoration(16))
+        binding.emotionsRecycler.addItemDecoration(SpaceItemDecoration(8.dpToPx()))
 
         val savedEmotions = listOf(
             SavedEmotion("1", "Счастье", "вчера, 20:30", EmotionColor.GREEN),
@@ -58,16 +58,5 @@ class JournalFragment : Fragment() {
         animator.repeatCount = ValueAnimator.INFINITE
         animator.interpolator = android.view.animation.LinearInterpolator()
         animator.start()
-    }
-
-    class SpaceItemDecoration(private val space: Int) : RecyclerView.ItemDecoration() {
-        override fun getItemOffsets(
-            outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State
-        ) {
-            super.getItemOffsets(outRect, view, parent, state)
-            if (parent.getChildAdapterPosition(view) > 0) {
-                outRect.top = space
-            }
-        }
     }
 }

@@ -10,6 +10,7 @@ import com.example.emotions.R
 import com.example.emotions.databinding.ActivityMainBinding
 import com.example.emotions.presentation.adapter.EmotionListAdapter
 import com.example.emotions.ui.fragment.JournalFragment
+import com.example.emotions.ui.fragment.SettingsFragment
 import com.example.emotions.ui.fragment.StatsFragment
 
 class MainActivity : AppCompatActivity() {
@@ -43,7 +44,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.item_settings -> {
-                    loadFragment(JournalFragment())
+                    loadFragment(SettingsFragment())
                     true
                 }
                 else -> false
