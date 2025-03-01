@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragment.MoodStatsFragment">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/gwen_trial_book"
+        android:text="Ваше настроение в течение дня"
+        android:textColor="@color/white"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.example.emotions.ui.view.DayMoodSegment
+        android:id="@+id/earlyMorning"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/morning"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        app:period="Раннее утро" />
+
+    <com.example.emotions.ui.view.DayMoodSegment
+        android:id="@+id/morning"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:period="Утро\n"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/afternoon"
+        app:layout_constraintStart_toEndOf="@+id/earlyMorning"
+        app:layout_constraintTop_toBottomOf="@id/textView" />
+
+    <com.example.emotions.ui.view.DayMoodSegment
+        android:id="@+id/afternoon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        app:period="День\n"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/evening"
+        app:layout_constraintStart_toEndOf="@+id/morning"
+        app:layout_constraintTop_toBottomOf="@id/textView" />
+
+    <com.example.emotions.ui.view.DayMoodSegment
+        android:id="@+id/evening"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        app:period="Вечер\n"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/lateEvening"
+        app:layout_constraintStart_toEndOf="@+id/afternoon"
+        app:layout_constraintTop_toBottomOf="@id/textView" />
+
+    <com.example.emotions.ui.view.DayMoodSegment
+        android:id="@+id/lateEvening"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/evening"
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        app:period="Поздний вечер" />
+    
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -41,7 +41,8 @@ class StatsPageFragment : Fragment() {
         val fragments = listOf(
             CategoryStatsFragment(),
             WeekStatsFragment(),
-            FrequencyStatsFragment()
+            FrequencyStatsFragment(),
+            MoodStatsFragment()
         )
 
         binding.pager.adapter = StatsPagerAdapter(this, fragments)

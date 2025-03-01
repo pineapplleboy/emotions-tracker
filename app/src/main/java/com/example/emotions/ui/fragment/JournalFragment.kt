@@ -60,11 +60,6 @@ class JournalFragment : Fragment() {
         animator.start()
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
     class SpaceItemDecoration(private val space: Int) : RecyclerView.ItemDecoration() {
         override fun getItemOffsets(
             outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State

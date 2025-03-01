@@ -7,4 +7,12 @@
         <attr name="fullscreenBackgroundColor" format="color" />
         <attr name="fullscreenTextColor" format="color" />
     </declare-styleable>
+    <declare-styleable name="DayMoodSegment">
+        <attr name="redPercent" format="float"/>
+        <attr name="greenPercent" format="float"/>
+        <attr name="bluePercent" format="float"/>
+        <attr name="yellowPercent" format="float"/>
+        <attr name="period" format="string"/>
+        <attr name="amount" format="integer"/>
+    </declare-styleable>
 </resources>
