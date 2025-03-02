@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.emotions.R
 import com.example.emotions.databinding.FragmentJournalBinding
 import com.example.emotions.domain.model.EmotionColor
 import com.example.emotions.domain.model.SavedEmotion
@@ -39,10 +40,10 @@ class JournalFragment : Fragment() {
         binding.emotionsRecycler.addItemDecoration(SpaceItemDecoration(8.dpToPx()))
 
         val savedEmotions = listOf(
-            SavedEmotion("1", "Счастье", "вчера, 20:30", EmotionColor.GREEN),
-            SavedEmotion("2", "Грусть 2", "вчера, 20:30", EmotionColor.BLUE),
-            SavedEmotion("3", "Злоба", "вчера, 20:30", EmotionColor.RED),
-            SavedEmotion("4", "Спокойствие", "вчера, 20:30", EmotionColor.YELLOW)
+            SavedEmotion("1", "Счастье", "вчера, 20:30", EmotionColor.YELLOW, R.drawable.ic_happinness),
+            SavedEmotion("2", "Грусть 2", "вчера, 20:30", EmotionColor.BLUE, R.drawable.ic_fatigue),
+            SavedEmotion("3", "Злоба", "вчера, 20:30", EmotionColor.RED, R.drawable.ic_rage),
+            SavedEmotion("4", "Спокойствие", "вчера, 20:30", EmotionColor.GREEN, R.drawable.ic_calm)
         )
 
         adapter.submitList(savedEmotions)

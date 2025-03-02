@@ -4,5 +4,6 @@ data class SavedEmotion(
     val id: String,
     val type: String,
     val timeDate: String,
-    val color: EmotionColor
+    val color: EmotionColor,
+    val icon: Int
 )

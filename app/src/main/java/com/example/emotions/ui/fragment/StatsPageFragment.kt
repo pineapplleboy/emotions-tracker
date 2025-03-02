@@ -9,6 +9,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.emotions.R
 import com.example.emotions.databinding.FragmentStatsPageBinding
 import com.example.emotions.presentation.adapter.StatsPagerAdapter
+import com.example.emotions.presentation.dpToPx
 import com.google.android.material.tabs.TabLayoutMediator
 
 class StatsPageFragment : Fragment() {

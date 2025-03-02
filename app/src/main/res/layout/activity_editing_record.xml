@@ -26,6 +26,7 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="14dp"
                 android:background="@drawable/graphite_rounded_shape"
+                android:contentDescription="@string/null_string"
                 android:padding="8dp"
                 android:src="@drawable/ic_left_arrow"
                 app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:fontFamily="@font/gwen_trial_book"
-                android:text="Запись"
+                android:text="@string/record"
                 android:textColor="@color/white"
                 android:textSize="24sp"
                 app:layout_constraintStart_toEndOf="@id/goBackButton"
@@ -66,7 +67,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/card"
-                app:questionText="Чем вы занимались?" />
+                app:questionText="@string/first_question" />
 
             <com.example.emotions.ui.view.QuestionView
                 android:id="@+id/secondQuestion"
@@ -78,7 +79,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/firstQuestion"
-                app:questionText="С кем вы были?" />
+                app:questionText="@string/second_question" />
 
             <com.example.emotions.ui.view.QuestionView
                 android:id="@+id/thirdQuestion"
@@ -92,7 +93,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/secondQuestion"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:questionText="Где вы были?" />
+                app:questionText="@string/third_question" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
@@ -108,7 +109,7 @@
         android:fontFamily="@font/vela_sans_gx"
         android:paddingHorizontal="24dp"
         android:paddingVertical="16dp"
-        android:text="Сохранить"
+        android:text="@string/save_button"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textAllCaps="false"

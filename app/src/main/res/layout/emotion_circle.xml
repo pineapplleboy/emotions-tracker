@@ -21,6 +21,6 @@
         android:gravity="center"
         android:textColor="@android:color/black"
         android:textSize="10sp"
-        android:fontFamily= "@font/gwen_text_trial_bold"
+        android:fontFamily= "@font/gwen_trial_black"
         tools:ignore="SmallSp" />
 </FrameLayout>

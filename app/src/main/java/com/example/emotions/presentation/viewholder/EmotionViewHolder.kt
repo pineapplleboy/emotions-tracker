@@ -20,6 +20,8 @@ abstract class EmotionViewHolder(val view: View): RecyclerView.ViewHolder(view) 
 
         emotionType.text = savedEmotion.type
         timeDate.text = savedEmotion.timeDate
+        icon.setImageResource(savedEmotion.icon)
+
         changeColors()
     }
 

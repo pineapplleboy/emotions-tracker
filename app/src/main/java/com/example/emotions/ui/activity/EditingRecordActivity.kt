@@ -62,6 +62,7 @@ class EditingRecordActivity : AppCompatActivity() {
         binding.card.timeDate.text = getDateTime()
         binding.card.emotionType.text = emotion.type
         binding.card.emotionType.setTextColor(ContextCompat.getColor(this, getTextColor(emotion.color)))
+        binding.card.icon.setImageResource(emotion.icon)
 
         val answers = arrayOf(
             mutableListOf(

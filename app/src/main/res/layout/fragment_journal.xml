@@ -8,7 +8,6 @@
     android:theme="@style/ThemeOverlay.Emotions.FullscreenContainer"
     tools:context=".ui.fragment.JournalFragment">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -108,7 +107,7 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="24dp"
             android:fontFamily="@font/gwen_trial_book"
-            android:text="Что вы сейчас чувствуете?"
+            android:text="@string/journal_main_question"
             android:textColor="@color/white"
             android:textSize="36sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -123,6 +122,7 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="24dp"
             android:src="@drawable/ellipse"
+            android:contentDescription="@string/null_string"
             app:layout_constraintDimensionRatio="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -133,6 +133,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:src="@drawable/gradient_circle"
+            android:contentDescription="@string/null_string"
             app:layout_constraintBottom_toBottomOf="@+id/circle"
             app:layout_constraintEnd_toEndOf="@+id/circle"
             app:layout_constraintStart_toStartOf="@+id/circle"
@@ -144,6 +145,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:background="@drawable/white_rounded_shape"
+            android:contentDescription="@string/null_string"
             android:padding="19dp"
             android:src="@drawable/ic_plus"
             app:layout_constraintBottom_toTopOf="@+id/addRecordText"
@@ -156,8 +158,8 @@
             android:id="@+id/addRecordText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/vela_sans_gx"
-            android:text="Добавить запись"
+            android:fontFamily="@font/vela_sans_medium"
+            android:text="@string/add_button_text"
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/circle"

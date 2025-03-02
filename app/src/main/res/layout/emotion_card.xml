@@ -13,7 +13,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/vela_sans_gx"
-        android:text="вчера, 23:40"
         android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,13 +23,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="48dp"
         android:fontFamily="@font/vela_sans_gx"
         android:text="@string/feeling_hint"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timeDate" />
+        app:layout_constraintTop_toBottomOf="@+id/timeDate"
+        app:layout_constraintBottom_toTopOf="@id/emotionType"/>
 
     <TextView
         android:id="@+id/emotionType"
@@ -39,11 +39,22 @@
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/gwen_text_trial_bold"
-        android:text="выгорание"
         android:textColor="@color/sky_blue"
         android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/feelingsText" />
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_burnout"
+        android:contentDescription="@string/null_string"
+        app:layout_constraintBottom_toBottomOf="@+id/emotionType"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/feelingsText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
