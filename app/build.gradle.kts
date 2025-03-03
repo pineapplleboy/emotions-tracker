@@ -49,6 +49,7 @@ dependencies {
     implementation(libs.androidx.core.animation)
     implementation(libs.zoomlayout)
     implementation(libs.google.flexbox)
+    implementation(libs.material.vx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

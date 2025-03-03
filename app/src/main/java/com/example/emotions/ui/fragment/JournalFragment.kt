@@ -2,6 +2,7 @@ package com.example.emotions.ui.fragment
 
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
+import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -51,11 +52,11 @@ class JournalFragment : Fragment() {
         binding.addRecordButton.setOnClickListener{
 
             val intent = Intent(this.activity, AddingEmotionActivity::class.java)
-            startActivity(intent)
+            startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this.activity).toBundle())
         }
 
         val animator = ObjectAnimator.ofFloat(binding.gradientCircle, View.ROTATION, 0f, 360f)
-        animator.duration = 2000
+        animator.duration = 5000
         animator.repeatCount = ValueAnimator.INFINITE
         animator.interpolator = android.view.animation.LinearInterpolator()
         animator.start()

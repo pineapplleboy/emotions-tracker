@@ -1,5 +1,7 @@
 package com.example.emotions.ui.activity
 
+import android.app.ActivityOptions
+import android.content.Intent
 import android.icu.text.SimpleDateFormat
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -63,6 +65,15 @@ class EditingRecordActivity : AppCompatActivity() {
         binding.card.emotionType.text = emotion.type
         binding.card.emotionType.setTextColor(ContextCompat.getColor(this, getTextColor(emotion.color)))
         binding.card.icon.setImageResource(emotion.icon)
+
+        binding.goBackButton.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
+
+        binding.saveButton.setOnClickListener {
+            val intent = Intent(this@EditingRecordActivity, MainActivity::class.java)
+            startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this@EditingRecordActivity).toBundle())
+        }
 
         val answers = arrayOf(
             mutableListOf(

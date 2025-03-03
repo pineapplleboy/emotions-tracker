@@ -1,16 +1,13 @@
 package com.example.emotions.ui.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
-import com.example.emotions.R
 import com.example.emotions.databinding.FragmentStatsPageBinding
 import com.example.emotions.presentation.adapter.StatsPagerAdapter
-import com.example.emotions.presentation.dpToPx
-import com.google.android.material.tabs.TabLayoutMediator
 
 class StatsPageFragment : Fragment() {
 
@@ -48,5 +45,16 @@ class StatsPageFragment : Fragment() {
 
         binding.pager.adapter = StatsPagerAdapter(this, fragments)
         binding.pager.orientation = ViewPager2.ORIENTATION_VERTICAL
+
+        binding.pager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                binding.pageIndicator.setPage(position)
+            }
+        })
+
+        binding.pageIndicator.onPageChanged = {
+            binding.pager.currentItem = it
+        }
     }
 }

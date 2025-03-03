@@ -1,23 +1,32 @@
 package com.example.emotions.ui.activity
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.example.emotions.R
 import com.example.emotions.databinding.ActivityMainBinding
-import com.example.emotions.presentation.adapter.EmotionListAdapter
 import com.example.emotions.ui.fragment.JournalFragment
 import com.example.emotions.ui.fragment.SettingsFragment
 import com.example.emotions.ui.fragment.StatsFragment
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.timepicker.MaterialTimePicker
+import com.google.android.material.timepicker.TimeFormat
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var adapter: EmotionListAdapter
     private lateinit var binding: ActivityMainBinding
+    private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
 
+    private lateinit var onTimeSaved: (time: String) -> Unit
+
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -51,6 +60,40 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        bottomSheetBehavior = BottomSheetBehavior.from(binding.addNotificationPanel).apply {
+            isHideable = true
+            state = BottomSheetBehavior.STATE_HIDDEN
+        }
+
+        bottomSheetBehavior.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
+            override fun onStateChanged(bottomSheet: View, newState: Int) {
+                if (newState == BottomSheetBehavior.STATE_DRAGGING) {
+                    bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
+                }
+            }
+
+            override fun onSlide(bottomSheet: View, slideOffset: Float) {}
+        })
+
+        binding.hours.setOnClickListener {
+            TimePickerBase.showTimePicker("Напоминание", supportFragmentManager) {
+                binding.hours.text = it.hour.toString()
+                binding.minutes.text = it.minute.toString()
+            }
+        }
+
+        binding.minutes.setOnClickListener {
+            TimePickerBase.showTimePicker("Напоминание", supportFragmentManager) {
+                binding.hours.text = it.hour.toString()
+                binding.minutes.text = it.minute.toString()
+            }
+        }
+
+        binding.saveButton.setOnClickListener {
+            onTimeSaved(getTime())
+            hideAddNotificationPanel()
+        }
+
         if (savedInstanceState == null) {
             loadFragment(JournalFragment())
         }
@@ -60,5 +103,65 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, fragment)
             .commit()
+    }
+
+    fun showAddNotificationPanel(onTimeSaved: (String) -> Unit) {
+        bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
+        this.onTimeSaved = onTimeSaved
+    }
+
+    private fun hideAddNotificationPanel() {
+        bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
+    }
+
+    private fun getTime(): String {
+        return "${binding.hours.text}:${binding.minutes.text}"
+    }
+}
+
+object TimePickerBase {
+
+    fun showTimePicker(
+        title: String,
+        fragmentManager: FragmentManager,
+        time: Time? = null,
+        showSystemTimeFormat: Boolean = false,
+        callback: (Time) -> Unit
+    ) {
+
+        val clockFormat = TimeFormat.CLOCK_24H
+
+        val builder =
+            MaterialTimePicker.Builder()
+                .setTheme(R.style.BaseTheme_TimePicker)
+                .setTimeFormat(if (showSystemTimeFormat) clockFormat else TimeFormat.CLOCK_12H)
+                .setTitleText(title)
+
+        time?.let {
+            builder.setHour(it.hour)
+            builder.setMinute(it.minute)
+        }
+
+        val picker = builder.build()
+
+        picker.addOnPositiveButtonClickListener {
+            callback.invoke(Time(picker.minute, picker.hour))
+        }
+
+        picker.addOnNegativeButtonClickListener {
+            picker.dismissAllowingStateLoss()
+        }
+
+        picker.show(fragmentManager, "TimePickerBase")
+    }
+
+}
+
+data class Time(
+    val minute: Int,
+    val hour: Int,
+) {
+    override fun toString(): String {
+        return "$hour:$minute"
     }
 }

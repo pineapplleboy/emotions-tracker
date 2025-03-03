@@ -9,8 +9,12 @@ class NotificationViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
     val binding = NotificationSettingsBinding.bind(view)
 
-    fun bind(notificationSettings: NotificationSettings) = with(binding) {
+    fun bind(notificationSettings: NotificationSettings, onDelete: (NotificationSettings) -> Unit) = with(binding) {
 
         time.text = notificationSettings.time
+
+        deleteButton.setOnClickListener {
+            onDelete(notificationSettings)
+        }
     }
 }

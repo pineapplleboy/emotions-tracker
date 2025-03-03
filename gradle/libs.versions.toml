@@ -1,6 +1,7 @@
 [versions]
 agp = "8.7.3"
 flexboxVersion = "3.0.0"
+googleMaterial = "1.12.0"
 kotlin = "1.9.24"
 coreKtx = "1.15.0"
 junit = "4.13.2"
@@ -24,6 +25,7 @@ material = { group = "com.google.android.material", name = "material", version.r
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-core-animation = { group = "androidx.core", name = "core-animation", version.ref = "coreAnimation" }
+material-vx = { module = "com.google.android.material:material", version.ref = "googleMaterial" }
 zoomlayout = { module = "com.otaliastudios:zoomlayout", version.ref = "zoomlayout" }
 
 [plugins]

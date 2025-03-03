@@ -8,29 +8,31 @@ import com.example.emotions.R
 import com.example.emotions.domain.model.NotificationSettings
 import com.example.emotions.presentation.viewholder.NotificationViewHolder
 
-class NotificationAdapter: ListAdapter<NotificationSettings, NotificationViewHolder>(DIFF) {
+class NotificationAdapter(
+    private val onDelete: (NotificationSettings) -> Unit
+): ListAdapter<NotificationSettings, NotificationViewHolder>(DIFF) {
 
     private companion object {
         val DIFF = object : DiffUtil.ItemCallback<NotificationSettings>() {
-            override fun areContentsTheSame(
-                oldItem: NotificationSettings,
-                newItem: NotificationSettings
-            ): Boolean {
-                return oldItem == newItem
-            }
-
             override fun areItemsTheSame(
                 oldItem: NotificationSettings,
                 newItem: NotificationSettings
             ): Boolean {
                 return oldItem.id == newItem.id
             }
+
+            override fun areContentsTheSame(
+                oldItem: NotificationSettings,
+                newItem: NotificationSettings
+            ): Boolean {
+                return oldItem == newItem
+            }
         }
     }
 
     override fun onBindViewHolder(holder: NotificationViewHolder, position: Int) {
         val notification = getItem(position)
-        holder.bind(notification)
+        holder.bind(notification, onDelete)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotificationViewHolder {

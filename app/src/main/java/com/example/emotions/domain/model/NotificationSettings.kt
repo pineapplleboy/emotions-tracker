@@ -1,6 +1,8 @@
 package com.example.emotions.domain.model
 
+import java.util.UUID
+
 data class NotificationSettings(
-    val id: Int,
-    val time: String
+    val time: String,
+    val id: UUID = UUID.randomUUID()
 )

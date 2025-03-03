@@ -28,4 +28,6 @@
 
     <color name="yellow_gradient_first">#FFFF33</color>
     <color name="yellow_gradient_second">#FFAA00</color>
+
+    <color name="green_switch">#00AC47</color>
 </resources>

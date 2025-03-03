@@ -15,4 +15,5 @@
     <string name="second_question">С кем вы были?</string>
     <string name="third_question">Где вы были?</string>
     <string name="save_button">Сохранить</string>
+    <string name="adding_emotion_hint">Выберите эмоцию, лучше всего описывающую, что вы сейчас чувствуете</string>
 </resources>
