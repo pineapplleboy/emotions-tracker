@@ -2,6 +2,7 @@ package com.example.emotions.ui.fragment
 
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
+import android.annotation.SuppressLint
 import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
@@ -60,5 +61,7 @@ class JournalFragment : Fragment() {
         animator.repeatCount = ValueAnimator.INFINITE
         animator.interpolator = android.view.animation.LinearInterpolator()
         animator.start()
+
+        binding.coloredLeftHalfCircle.setBackgroundResource(R.drawable.half_circle_red)
     }
 }

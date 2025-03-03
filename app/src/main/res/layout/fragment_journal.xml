@@ -139,6 +139,29 @@
             app:layout_constraintStart_toStartOf="@+id/circle"
             app:layout_constraintTop_toTopOf="@+id/circle" />
 
+        <View
+            android:id="@+id/coloredRightHalfCircle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/half_circle_yellow"
+            android:contentDescription="@string/null_string"
+            app:layout_constraintBottom_toBottomOf="@+id/circle"
+            app:layout_constraintEnd_toEndOf="@+id/circle"
+            app:layout_constraintStart_toStartOf="@+id/circle"
+            app:layout_constraintTop_toTopOf="@+id/circle" />
+
+        <View
+            android:id="@+id/coloredLeftHalfCircle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/half_circle_yellow"
+            android:rotation="180"
+            android:contentDescription="@string/null_string"
+            app:layout_constraintBottom_toBottomOf="@+id/circle"
+            app:layout_constraintEnd_toEndOf="@+id/circle"
+            app:layout_constraintStart_toStartOf="@+id/circle"
+            app:layout_constraintTop_toTopOf="@+id/circle" />
+
         <ImageButton
             android:id="@+id/addRecordButton"
             android:layout_width="wrap_content"
