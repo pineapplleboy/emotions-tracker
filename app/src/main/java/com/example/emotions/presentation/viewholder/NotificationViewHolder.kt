@@ -5,16 +5,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.emotions.databinding.NotificationSettingsBinding
 import com.example.emotions.domain.model.NotificationSettings
 
-class NotificationViewHolder(view: View): RecyclerView.ViewHolder(view) {
+class NotificationViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     val binding = NotificationSettingsBinding.bind(view)
 
-    fun bind(notificationSettings: NotificationSettings, onDelete: (NotificationSettings) -> Unit) = with(binding) {
+    fun bind(notificationSettings: NotificationSettings, onDelete: (NotificationSettings) -> Unit) =
+        with(binding) {
 
-        time.text = notificationSettings.time
+            time.text = notificationSettings.time
 
-        deleteButton.setOnClickListener {
-            onDelete(notificationSettings)
+            deleteButton.setOnClickListener {
+                onDelete(notificationSettings)
+            }
         }
-    }
 }

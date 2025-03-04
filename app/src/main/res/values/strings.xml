@@ -16,4 +16,23 @@
     <string name="third_question">Где вы были?</string>
     <string name="save_button">Сохранить</string>
     <string name="adding_emotion_hint">Выберите эмоцию, лучше всего описывающую, что вы сейчас чувствуете</string>
+    <string name="reminder">Напоминание</string>
+    <string name="divider">:</string>
+    <string name="twenty">20</string>
+    <string name="hours">Часы</string>
+    <string name="minutes">Минуты</string>
+    <string name="save">Сохранить</string>
+    <string name="category_emotions">Эмоции по категориям</string>
+    <string name="frequent_emotions">Самые частые эмоции</string>
+    <string name="day_emotions">Ваше настроение в течение дня</string>
+    <string name="early_morning">Раннее утро</string>
+    <string name="morning">Утро\n</string>
+    <string name="afternoon">День\n</string>
+    <string name="evening">Вечер\n</string>
+    <string name="late_evening">Поздний вечер</string>
+    <string name="send_notifications">Присылать уведомления</string>
+    <string name="add_notification">Добавить напоминание</string>
+    <string name="fingerprintLogin">Вход по отпечатку пальца</string>
+    <string name="settings">Настройки</string>
+    <string name="weeekday_emotions">Эмоции по дням недели</string>
 </resources>

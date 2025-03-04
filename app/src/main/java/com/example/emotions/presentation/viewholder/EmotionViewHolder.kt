@@ -8,7 +8,7 @@ import com.example.emotions.R
 import com.example.emotions.databinding.EmotionCardBinding
 import com.example.emotions.domain.model.SavedEmotion
 
-abstract class EmotionViewHolder(val view: View): RecyclerView.ViewHolder(view) {
+abstract class EmotionViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
     val binding = EmotionCardBinding.bind(view)
 
@@ -28,7 +28,7 @@ abstract class EmotionViewHolder(val view: View): RecyclerView.ViewHolder(view) 
     open fun changeColors() {}
 }
 
-class BlueEmotionViewHolder(view: View): EmotionViewHolder(view) {
+class BlueEmotionViewHolder(view: View) : EmotionViewHolder(view) {
 
     override fun changeColors() = with(binding) {
         card.setBackgroundResource(R.drawable.gradient_card_blue)
@@ -36,7 +36,7 @@ class BlueEmotionViewHolder(view: View): EmotionViewHolder(view) {
     }
 }
 
-class GreenEmotionViewHolder(view: View): EmotionViewHolder(view) {
+class GreenEmotionViewHolder(view: View) : EmotionViewHolder(view) {
 
     override fun changeColors() = with(binding) {
         card.setBackgroundResource(R.drawable.gradient_card_green)
@@ -44,7 +44,7 @@ class GreenEmotionViewHolder(view: View): EmotionViewHolder(view) {
     }
 }
 
-class RedEmotionViewHolder(view: View): EmotionViewHolder(view) {
+class RedEmotionViewHolder(view: View) : EmotionViewHolder(view) {
 
     @SuppressLint("ResourceAsColor")
     override fun changeColors() = with(binding) {
@@ -53,7 +53,7 @@ class RedEmotionViewHolder(view: View): EmotionViewHolder(view) {
     }
 }
 
-class YellowEmotionViewHolder(view: View): EmotionViewHolder(view) {
+class YellowEmotionViewHolder(view: View) : EmotionViewHolder(view) {
 
     @SuppressLint("ResourceAsColor")
     override fun changeColors() = with(binding) {

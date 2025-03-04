@@ -2,18 +2,18 @@ package com.example.emotions.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import com.example.emotions.R
-import com.example.emotions.domain.model.SavedEmotion
 import com.example.emotions.domain.model.EmotionColor
+import com.example.emotions.domain.model.SavedEmotion
 import com.example.emotions.presentation.viewholder.BlueEmotionViewHolder
 import com.example.emotions.presentation.viewholder.EmotionViewHolder
 import com.example.emotions.presentation.viewholder.GreenEmotionViewHolder
 import com.example.emotions.presentation.viewholder.RedEmotionViewHolder
 import com.example.emotions.presentation.viewholder.YellowEmotionViewHolder
 
-class EmotionListAdapter: ListAdapter<SavedEmotion, EmotionViewHolder>(DIFF) {
+class EmotionListAdapter : ListAdapter<SavedEmotion, EmotionViewHolder>(DIFF) {
 
     private companion object {
         val DIFF = object : DiffUtil.ItemCallback<SavedEmotion>() {
@@ -40,7 +40,7 @@ class EmotionListAdapter: ListAdapter<SavedEmotion, EmotionViewHolder>(DIFF) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EmotionViewHolder {
 
         val view = LayoutInflater.from(parent.context).inflate(R.layout.emotion_card, parent, false)
-        return when(viewType) {
+        return when (viewType) {
             EmotionColor.BLUE.ordinal -> BlueEmotionViewHolder(view)
             EmotionColor.RED.ordinal -> RedEmotionViewHolder(view)
             EmotionColor.GREEN.ordinal -> GreenEmotionViewHolder(view)

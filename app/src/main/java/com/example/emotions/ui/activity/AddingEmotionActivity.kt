@@ -60,22 +60,102 @@ class AddingEmotionActivity : AppCompatActivity() {
 
         with(binding) {
             val emotions = listOf(
-                Emotion("Ярость", "Сильное чувство гнева, сопровождающееся агрессией", EmotionColor.RED, R.drawable.ic_rage),
-                Emotion("Напряжение", "Ощущение стресса и внутреннего давления", EmotionColor.RED, R.drawable.ic_stress),
-                Emotion("Возбуждение", "Состояние повышенной активности и бодрствования", EmotionColor.YELLOW, R.drawable.ic_excitement),
-                Emotion("Восторг", "Интенсивное чувство радости и восхищения", EmotionColor.YELLOW, R.drawable.ic_delight),
-                Emotion("Зависть", "Желание иметь то, что есть у других, с оттенком недовольства", EmotionColor.RED, R.drawable.ic_envy),
-                Emotion("Беспокойство", "Чувство тревоги и волнения о чём-либо", EmotionColor.RED, R.drawable.ic_anxiety),
-                Emotion("Уверенность", "Ощущение внутренней силы и веры в свои способности", EmotionColor.YELLOW, R.drawable.ic_confidence),
-                Emotion("Счастье", "Общее состояние удовлетворения и радости", EmotionColor.YELLOW, R.drawable.ic_happinness),
-                Emotion("Выгорание", "Чувство эмоционального и физического истощения", EmotionColor.BLUE, R.drawable.ic_burnout),
-                Emotion("Усталость", "Ощущение, что необходимо отдохнуть", EmotionColor.BLUE, R.drawable.ic_fatigue),
-                Emotion("Спокойствие", "Состояние внутреннего равновесия и умиротворённости", EmotionColor.GREEN, R.drawable.ic_calm),
-                Emotion("Удовлетворённость", "Чувство довольства достигнутым", EmotionColor.GREEN, R.drawable.ic_satisfaction),
-                Emotion("Депрессия", "Состояние подавленности, потери интереса и энергии", EmotionColor.BLUE, R.drawable.ic_depression),
-                Emotion("Апатия", "Безразличие к окружающему, отсутствие мотивации", EmotionColor.BLUE, R.drawable.ic_apathy),
-                Emotion("Благодарность", "Чувство признательности за что-то хорошее", EmotionColor.GREEN, R.drawable.ic_gratitude),
-                Emotion("Защищённость", "Ощущение безопасности и комфорта", EmotionColor.GREEN, R.drawable.ic_security)
+                Emotion(
+                    "Ярость",
+                    "Сильное чувство гнева, сопровождающееся агрессией",
+                    EmotionColor.RED,
+                    R.drawable.ic_rage
+                ),
+                Emotion(
+                    "Напряжение",
+                    "Ощущение стресса и внутреннего давления",
+                    EmotionColor.RED,
+                    R.drawable.ic_stress
+                ),
+                Emotion(
+                    "Возбуждение",
+                    "Состояние повышенной активности и бодрствования",
+                    EmotionColor.YELLOW,
+                    R.drawable.ic_excitement
+                ),
+                Emotion(
+                    "Восторг",
+                    "Интенсивное чувство радости и восхищения",
+                    EmotionColor.YELLOW,
+                    R.drawable.ic_delight
+                ),
+                Emotion(
+                    "Зависть",
+                    "Желание иметь то, что есть у других, с оттенком недовольства",
+                    EmotionColor.RED,
+                    R.drawable.ic_envy
+                ),
+                Emotion(
+                    "Беспокойство",
+                    "Чувство тревоги и волнения о чём-либо",
+                    EmotionColor.RED,
+                    R.drawable.ic_anxiety
+                ),
+                Emotion(
+                    "Уверенность",
+                    "Ощущение внутренней силы и веры в свои способности",
+                    EmotionColor.YELLOW,
+                    R.drawable.ic_confidence
+                ),
+                Emotion(
+                    "Счастье",
+                    "Общее состояние удовлетворения и радости",
+                    EmotionColor.YELLOW,
+                    R.drawable.ic_happinness
+                ),
+                Emotion(
+                    "Выгорание",
+                    "Чувство эмоционального и физического истощения",
+                    EmotionColor.BLUE,
+                    R.drawable.ic_burnout
+                ),
+                Emotion(
+                    "Усталость",
+                    "Ощущение, что необходимо отдохнуть",
+                    EmotionColor.BLUE,
+                    R.drawable.ic_fatigue
+                ),
+                Emotion(
+                    "Спокойствие",
+                    "Состояние внутреннего равновесия и умиротворённости",
+                    EmotionColor.GREEN,
+                    R.drawable.ic_calm
+                ),
+                Emotion(
+                    "Удовлетворённость",
+                    "Чувство довольства достигнутым",
+                    EmotionColor.GREEN,
+                    R.drawable.ic_satisfaction
+                ),
+                Emotion(
+                    "Депрессия",
+                    "Состояние подавленности, потери интереса и энергии",
+                    EmotionColor.BLUE,
+                    R.drawable.ic_depression
+                ),
+                Emotion(
+                    "Апатия",
+                    "Безразличие к окружающему, отсутствие мотивации",
+                    EmotionColor.BLUE,
+                    R.drawable.ic_apathy
+                ),
+                Emotion(
+                    "Благодарность",
+                    "Чувство признательности за что-то хорошее",
+                    EmotionColor.GREEN,
+                    R.drawable.ic_gratitude
+                ),
+                Emotion(
+                    "Защищённость",
+                    "Ощущение безопасности и комфорта",
+                    EmotionColor.GREEN,
+                    R.drawable.ic_security
+                )
             )
 
             gridLayout = emotionsGrid
@@ -91,7 +171,11 @@ class AddingEmotionActivity : AppCompatActivity() {
             imageButton.setOnClickListener {
                 val intent = Intent(this@AddingEmotionActivity, EditingRecordActivity::class.java)
                 intent.putExtra("emotionId", currentScaledViewId)
-                startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this@AddingEmotionActivity).toBundle())
+                startActivity(
+                    intent,
+                    ActivityOptions.makeSceneTransitionAnimation(this@AddingEmotionActivity)
+                        .toBundle()
+                )
             }
 
             goBackButton.setOnClickListener {
@@ -122,7 +206,7 @@ class AddingEmotionActivity : AppCompatActivity() {
 
             val closestView = gridLayout.getChildAt(closestIndex)
 
-            if(closestView != currentScaledView) {
+            if (closestView != currentScaledView) {
                 currentScaledView?.let { scaleDownCircle(it) }
                 scaleUpCircle(closestView)
 
@@ -195,7 +279,11 @@ class AddingEmotionActivity : AppCompatActivity() {
         animator.start()
     }
 
-    private fun generateEmotionsGrid(context: Context, emotions: List<Emotion>, gridLayout: GridLayout) {
+    private fun generateEmotionsGrid(
+        context: Context,
+        emotions: List<Emotion>,
+        gridLayout: GridLayout
+    ) {
         val size = emotions.size
         val rootSize = sqrt(size.toDouble()).toInt()
         val gridSize = max(rootSize, 2)
@@ -242,7 +330,7 @@ class AddingEmotionActivity : AppCompatActivity() {
         }
     }
 
-    fun Context.spToPx(sp: Float): Float {
+    private fun Context.spToPx(sp: Float): Float {
         return TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_SP,
             sp,

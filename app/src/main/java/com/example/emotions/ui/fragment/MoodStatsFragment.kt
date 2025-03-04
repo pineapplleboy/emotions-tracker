@@ -1,14 +1,12 @@
 package com.example.emotions.ui.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.emotions.R
+import androidx.fragment.app.Fragment
 import com.example.emotions.databinding.FragmentMoodStatsBinding
 import com.example.emotions.domain.model.DayMood
-import com.example.emotions.ui.view.DayMoodSegment
 
 class MoodStatsFragment : Fragment() {
 
@@ -61,7 +59,7 @@ class MoodStatsFragment : Fragment() {
             binding.lateEvening
         )
 
-        for(i in 0..4) {
+        for (i in 0..4) {
             moodBars[i].setMoodValues(
                 red = dayMood[i].redPercent,
                 blue = dayMood[i].bluePercent,

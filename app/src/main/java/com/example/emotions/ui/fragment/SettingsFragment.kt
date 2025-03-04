@@ -73,7 +73,12 @@ class SettingsFragment : Fragment() {
     private fun changeSwitchColors(view: MaterialSwitch) {
         view.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                view.trackTintList = ColorStateList.valueOf(ContextCompat.getColor(requireContext(),R.color.green_switch))
+                view.trackTintList = ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        requireContext(),
+                        R.color.green_switch
+                    )
+                )
             } else {
                 view.trackTintList = ColorStateList.valueOf(Color.WHITE)
             }

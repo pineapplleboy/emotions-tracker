@@ -6,7 +6,6 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.withStyledAttributes
@@ -52,11 +51,10 @@ class DayMoodSegment @JvmOverloads constructor(
         updateSingleColor(binding.blue, binding.blueText, bluePercent)
         updateSingleColor(binding.yellow, binding.yellowText, yellowPercent)
 
-        if(greenPercent <= 0 && redPercent <= 0 && bluePercent <= 0 && yellowPercent <= 0) {
+        if (greenPercent <= 0 && redPercent <= 0 && bluePercent <= 0 && yellowPercent <= 0) {
             binding.gray.visibility = VISIBLE
             Log.d("PENIS", "HUGE")
-        }
-        else {
+        } else {
             binding.gray.visibility = INVISIBLE
         }
 
@@ -68,11 +66,10 @@ class DayMoodSegment @JvmOverloads constructor(
         textView: TextView,
         percent: Float
     ) {
-        if(percent <= 0) {
+        if (percent <= 0) {
             view.visibility = GONE
             textView.text = ""
-        }
-        else {
+        } else {
             view.visibility = VISIBLE
             view.layoutParams = (view.layoutParams as LayoutParams).apply {
                 verticalWeight = percent

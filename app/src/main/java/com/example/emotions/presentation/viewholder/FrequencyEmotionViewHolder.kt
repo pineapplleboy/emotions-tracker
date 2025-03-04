@@ -17,28 +17,29 @@ class FrequencyEmotionViewHolder(val view: View) : RecyclerView.ViewHolder(view)
     private var id: Int = 0
 
     @SuppressLint("SetTextI18n")
-    fun bind(emotionFrequency: EmotionFrequency, guidelinePosition: Int, frequency: Float) = with(binding) {
-        id = emotionFrequency.id
+    fun bind(emotionFrequency: EmotionFrequency, guidelinePosition: Int, frequency: Float) =
+        with(binding) {
+            id = emotionFrequency.id
 
-        val dpToPx = view.context.resources.displayMetrics.density
+            val dpToPx = view.context.resources.displayMetrics.density
 
-        emotion.post {
-            val params = bar.layoutParams as ConstraintLayout.LayoutParams
-            val minMargin = (params.marginStart * dpToPx).toInt()
+            emotion.post {
+                val params = bar.layoutParams as ConstraintLayout.LayoutParams
+                val minMargin = (params.marginStart * dpToPx).toInt()
 
-            params.marginStart = minMargin + guidelinePosition - emotion.width
-            bar.layoutParams = params
+                params.marginStart = minMargin + guidelinePosition - emotion.width
+                bar.layoutParams = params
+            }
+
+            imageView.setImageResource(emotionFrequency.emotion.icon)
+            emotion.text = emotionFrequency.emotion.type
+
+            (coloredPart.layoutParams as LinearLayout.LayoutParams).weight = frequency
+            (restPart.layoutParams as LinearLayout.LayoutParams).weight = 1 - frequency
+
+            coloredPart.setBackgroundResource(getBarBackground(emotionFrequency.emotion.color))
+            emotionAmount.text = emotionFrequency.amount.toString()
         }
-
-        imageView.setImageResource(emotionFrequency.emotion.icon)
-        emotion.text = emotionFrequency.emotion.type
-
-        (coloredPart.layoutParams as LinearLayout.LayoutParams).weight = frequency
-        (restPart.layoutParams as LinearLayout.LayoutParams).weight = 1 - frequency
-
-        coloredPart.setBackgroundResource(getBarBackground(emotionFrequency.emotion.color))
-        emotionAmount.text = emotionFrequency.amount.toString()
-    }
 
     private fun getBarBackground(color: EmotionColor): Int {
         return when (color) {

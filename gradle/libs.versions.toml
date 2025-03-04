@@ -1,7 +1,12 @@
 [versions]
 agp = "8.7.3"
+androidxFragmentTesting = "1.5.7"
+androidxJunit = "1.1.5"
+androidxJunitVersion = "1.1.5"
 flexboxVersion = "3.0.0"
+fragmentTesting = "1.8.6"
 googleMaterial = "1.12.0"
+kaspresso = "1.5.3"
 kotlin = "1.9.24"
 coreKtx = "1.15.0"
 junit = "4.13.2"
@@ -13,20 +18,26 @@ activity = "1.10.0"
 constraintlayout = "2.2.0"
 coreAnimation = "1.0.0"
 zoomlayout = "1.9.0"
+espressoContrib = "3.6.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-fragment-testing = { module = "androidx.fragment:fragment-testing", version.ref = "fragmentTesting" }
+androidx-fragment-testing-manifest = { module = "androidx.fragment:fragment-testing-manifest", version.ref = "fragmentTesting" }
+androidx-fragment-testing-v157 = { module = "androidx.fragment:fragment-testing", version.ref = "androidxFragmentTesting" }
+androidx-junit-v115 = { module = "androidx.test.ext:junit", version.ref = "androidxJunitVersion" }
 google-flexbox = { module = "com.google.android.flexbox:flexbox", version.ref = "flexboxVersion" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+kaspresso = { module = "com.kaspersky.android-components:kaspresso", version.ref = "kaspresso" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-core-animation = { group = "androidx.core", name = "core-animation", version.ref = "coreAnimation" }
 material-vx = { module = "com.google.android.material:material", version.ref = "googleMaterial" }
 zoomlayout = { module = "com.otaliastudios:zoomlayout", version.ref = "zoomlayout" }
+androidx-espresso-contrib = { group = "androidx.test.espresso", name = "espresso-contrib", version.ref = "espressoContrib" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

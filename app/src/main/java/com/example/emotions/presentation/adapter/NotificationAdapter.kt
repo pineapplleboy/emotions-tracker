@@ -10,7 +10,7 @@ import com.example.emotions.presentation.viewholder.NotificationViewHolder
 
 class NotificationAdapter(
     private val onDelete: (NotificationSettings) -> Unit
-): ListAdapter<NotificationSettings, NotificationViewHolder>(DIFF) {
+) : ListAdapter<NotificationSettings, NotificationViewHolder>(DIFF) {
 
     private companion object {
         val DIFF = object : DiffUtil.ItemCallback<NotificationSettings>() {
@@ -36,7 +36,8 @@ class NotificationAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotificationViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.notification_settings, parent, false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.notification_settings, parent, false)
         return NotificationViewHolder(view)
     }
 }

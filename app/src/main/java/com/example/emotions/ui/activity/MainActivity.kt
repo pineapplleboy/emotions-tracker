@@ -12,6 +12,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.emotions.R
 import com.example.emotions.databinding.ActivityMainBinding
+import com.example.emotions.domain.model.EmotionColor
+import com.example.emotions.domain.model.SavedEmotion
 import com.example.emotions.ui.fragment.JournalFragment
 import com.example.emotions.ui.fragment.SettingsFragment
 import com.example.emotions.ui.fragment.StatsFragment
@@ -45,17 +47,53 @@ class MainActivity : AppCompatActivity() {
 
             when (menuItem.itemId) {
                 R.id.item_journal -> {
-                    loadFragment(JournalFragment())
+                    loadFragment(
+                        JournalFragment.newInstance(
+                            listOf(
+                                SavedEmotion(
+                                    "1",
+                                    "Счастье",
+                                    "вчера, 20:30",
+                                    EmotionColor.YELLOW,
+                                    R.drawable.ic_happinness
+                                ),
+                                SavedEmotion(
+                                    "2",
+                                    "Грусть 2",
+                                    "вчера, 20:30",
+                                    EmotionColor.BLUE,
+                                    R.drawable.ic_fatigue
+                                ),
+                                SavedEmotion(
+                                    "3",
+                                    "Злоба",
+                                    "вчера, 20:30",
+                                    EmotionColor.RED,
+                                    R.drawable.ic_rage
+                                ),
+                                SavedEmotion(
+                                    "4",
+                                    "Спокойствие",
+                                    "вчера, 20:30",
+                                    EmotionColor.GREEN,
+                                    R.drawable.ic_calm
+                                )
+                            ), null, null
+                        )
+                    )
                     true
                 }
+
                 R.id.item_stats -> {
                     loadFragment(StatsFragment())
                     true
                 }
+
                 R.id.item_settings -> {
                     loadFragment(SettingsFragment())
                     true
                 }
+
                 else -> false
             }
         }
@@ -65,7 +103,8 @@ class MainActivity : AppCompatActivity() {
             state = BottomSheetBehavior.STATE_HIDDEN
         }
 
-        bottomSheetBehavior.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
+        bottomSheetBehavior.addBottomSheetCallback(object :
+            BottomSheetBehavior.BottomSheetCallback() {
             override fun onStateChanged(bottomSheet: View, newState: Int) {
                 if (newState == BottomSheetBehavior.STATE_DRAGGING) {
                     bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
@@ -95,7 +134,40 @@ class MainActivity : AppCompatActivity() {
         }
 
         if (savedInstanceState == null) {
-            loadFragment(JournalFragment())
+            loadFragment(
+                JournalFragment.newInstance(
+                    listOf(
+                        SavedEmotion(
+                            "1",
+                            "Счастье",
+                            "вчера, 20:30",
+                            EmotionColor.YELLOW,
+                            R.drawable.ic_happinness
+                        ),
+                        SavedEmotion(
+                            "2",
+                            "Грусть 2",
+                            "вчера, 20:30",
+                            EmotionColor.BLUE,
+                            R.drawable.ic_fatigue
+                        ),
+                        SavedEmotion(
+                            "3",
+                            "Злоба",
+                            "вчера, 20:30",
+                            EmotionColor.RED,
+                            R.drawable.ic_rage
+                        ),
+                        SavedEmotion(
+                            "4",
+                            "Спокойствие",
+                            "вчера, 20:30",
+                            EmotionColor.GREEN,
+                            R.drawable.ic_calm
+                        )
+                    ), null, null
+                )
+            )
         }
     }
 

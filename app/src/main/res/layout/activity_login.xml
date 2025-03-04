@@ -77,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="24dp"
-                android:fontFamily="@font/vela_sans_gx"
+                android:fontFamily="@font/vela_sans_medium"
                 android:text="@string/login_by_google"
                 android:textColor="@color/black"
                 android:textSize="16sp"

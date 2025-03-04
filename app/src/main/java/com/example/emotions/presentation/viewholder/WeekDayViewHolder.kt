@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.emotions.databinding.WeekdayCardBinding
 import com.example.emotions.domain.model.Weekday
 
-class WeekDayViewHolder(val view: View): RecyclerView.ViewHolder(view) {
+class WeekDayViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
     val binding = WeekdayCardBinding.bind(view)
 
@@ -35,7 +35,8 @@ class WeekDayViewHolder(val view: View): RecyclerView.ViewHolder(view) {
         weekday.emotions.forEachIndexed { _, emotion ->
             val iconView = ImageView(view.context).apply {
                 id = View.generateViewId()
-                layoutParams = ConstraintLayout.LayoutParams((40 * dpToPx).toInt(), (40 * dpToPx).toInt())
+                layoutParams =
+                    ConstraintLayout.LayoutParams((40 * dpToPx).toInt(), (40 * dpToPx).toInt())
                 setImageResource(emotion.icon)
                 scaleType = ImageView.ScaleType.CENTER_INSIDE
             }

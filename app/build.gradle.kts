@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("kotlin-parcelize")
 }
 
 android {
@@ -50,7 +51,13 @@ dependencies {
     implementation(libs.zoomlayout)
     implementation(libs.google.flexbox)
     implementation(libs.material.vx)
+    implementation(libs.androidx.espresso.contrib)
     testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.androidx.fragment.testing.v157)
+
+    androidTestImplementation(libs.androidx.junit.v115)
+    androidTestImplementation(libs.kaspresso)
+
+    debugImplementation(libs.androidx.fragment.testing.manifest)
 }

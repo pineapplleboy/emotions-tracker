@@ -36,7 +36,7 @@ class PageIndicator @JvmOverloads constructor(
 
         views[page].setBackgroundResource(R.drawable.white_circle)
 
-        for(i in 0..3) {
+        for (i in 0..3) {
             views[i].setOnClickListener {
                 setPage(i)
                 onPageChanged?.invoke(page)

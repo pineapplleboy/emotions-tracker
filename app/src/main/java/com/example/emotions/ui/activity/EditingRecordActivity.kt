@@ -40,22 +40,102 @@ class EditingRecordActivity : AppCompatActivity() {
         val emotionId = intent.getIntExtra("emotionId", 0)
 
         val emotions = listOf(
-            Emotion("Ярость", "Сильное чувство гнева, сопровождающееся агрессией", EmotionColor.RED, R.drawable.ic_rage),
-            Emotion("Напряжение", "Ощущение стресса и внутреннего давления", EmotionColor.RED, R.drawable.ic_stress),
-            Emotion("Возбуждение", "Состояние повышенной активности и бодрствования", EmotionColor.YELLOW, R.drawable.ic_excitement),
-            Emotion("Восторг", "Интенсивное чувство радости и восхищения", EmotionColor.YELLOW, R.drawable.ic_delight),
-            Emotion("Зависть", "Желание иметь то, что есть у других, с оттенком недовольства", EmotionColor.RED, R.drawable.ic_envy),
-            Emotion("Беспокойство", "Чувство тревоги и волнения о чём-либо", EmotionColor.RED, R.drawable.ic_anxiety),
-            Emotion("Уверенность", "Ощущение внутренней силы и веры в свои способности", EmotionColor.YELLOW, R.drawable.ic_confidence),
-            Emotion("Счастье", "Общее состояние удовлетворения и радости", EmotionColor.YELLOW, R.drawable.ic_happinness),
-            Emotion("Выгорание", "Чувство эмоционального и физического истощения", EmotionColor.BLUE, R.drawable.ic_burnout),
-            Emotion("Усталость", "Ощущение, что необходимо отдохнуть", EmotionColor.BLUE, R.drawable.ic_fatigue),
-            Emotion("Спокойствие", "Состояние внутреннего равновесия и умиротворённости", EmotionColor.GREEN, R.drawable.ic_calm),
-            Emotion("Удовлетворённость", "Чувство довольства достигнутым", EmotionColor.GREEN, R.drawable.ic_satisfaction),
-            Emotion("Депрессия", "Состояние подавленности, потери интереса и энергии", EmotionColor.BLUE, R.drawable.ic_depression),
-            Emotion("Апатия", "Безразличие к окружающему, отсутствие мотивации", EmotionColor.BLUE, R.drawable.ic_apathy),
-            Emotion("Благодарность", "Чувство признательности за что-то хорошее", EmotionColor.GREEN, R.drawable.ic_gratitude),
-            Emotion("Защищённость", "Ощущение безопасности и комфорта", EmotionColor.GREEN, R.drawable.ic_security)
+            Emotion(
+                "Ярость",
+                "Сильное чувство гнева, сопровождающееся агрессией",
+                EmotionColor.RED,
+                R.drawable.ic_rage
+            ),
+            Emotion(
+                "Напряжение",
+                "Ощущение стресса и внутреннего давления",
+                EmotionColor.RED,
+                R.drawable.ic_stress
+            ),
+            Emotion(
+                "Возбуждение",
+                "Состояние повышенной активности и бодрствования",
+                EmotionColor.YELLOW,
+                R.drawable.ic_excitement
+            ),
+            Emotion(
+                "Восторг",
+                "Интенсивное чувство радости и восхищения",
+                EmotionColor.YELLOW,
+                R.drawable.ic_delight
+            ),
+            Emotion(
+                "Зависть",
+                "Желание иметь то, что есть у других, с оттенком недовольства",
+                EmotionColor.RED,
+                R.drawable.ic_envy
+            ),
+            Emotion(
+                "Беспокойство",
+                "Чувство тревоги и волнения о чём-либо",
+                EmotionColor.RED,
+                R.drawable.ic_anxiety
+            ),
+            Emotion(
+                "Уверенность",
+                "Ощущение внутренней силы и веры в свои способности",
+                EmotionColor.YELLOW,
+                R.drawable.ic_confidence
+            ),
+            Emotion(
+                "Счастье",
+                "Общее состояние удовлетворения и радости",
+                EmotionColor.YELLOW,
+                R.drawable.ic_happinness
+            ),
+            Emotion(
+                "Выгорание",
+                "Чувство эмоционального и физического истощения",
+                EmotionColor.BLUE,
+                R.drawable.ic_burnout
+            ),
+            Emotion(
+                "Усталость",
+                "Ощущение, что необходимо отдохнуть",
+                EmotionColor.BLUE,
+                R.drawable.ic_fatigue
+            ),
+            Emotion(
+                "Спокойствие",
+                "Состояние внутреннего равновесия и умиротворённости",
+                EmotionColor.GREEN,
+                R.drawable.ic_calm
+            ),
+            Emotion(
+                "Удовлетворённость",
+                "Чувство довольства достигнутым",
+                EmotionColor.GREEN,
+                R.drawable.ic_satisfaction
+            ),
+            Emotion(
+                "Депрессия",
+                "Состояние подавленности, потери интереса и энергии",
+                EmotionColor.BLUE,
+                R.drawable.ic_depression
+            ),
+            Emotion(
+                "Апатия",
+                "Безразличие к окружающему, отсутствие мотивации",
+                EmotionColor.BLUE,
+                R.drawable.ic_apathy
+            ),
+            Emotion(
+                "Благодарность",
+                "Чувство признательности за что-то хорошее",
+                EmotionColor.GREEN,
+                R.drawable.ic_gratitude
+            ),
+            Emotion(
+                "Защищённость",
+                "Ощущение безопасности и комфорта",
+                EmotionColor.GREEN,
+                R.drawable.ic_security
+            )
         )
 
         val emotion = emotions[emotionId]
@@ -63,7 +143,12 @@ class EditingRecordActivity : AppCompatActivity() {
         binding.card.card.setBackgroundResource(getBackgroundDrawable(emotion.color))
         binding.card.timeDate.text = getDateTime()
         binding.card.emotionType.text = emotion.type
-        binding.card.emotionType.setTextColor(ContextCompat.getColor(this, getTextColor(emotion.color)))
+        binding.card.emotionType.setTextColor(
+            ContextCompat.getColor(
+                this,
+                getTextColor(emotion.color)
+            )
+        )
         binding.card.icon.setImageResource(emotion.icon)
 
         binding.goBackButton.setOnClickListener {
@@ -72,7 +157,10 @@ class EditingRecordActivity : AppCompatActivity() {
 
         binding.saveButton.setOnClickListener {
             val intent = Intent(this@EditingRecordActivity, MainActivity::class.java)
-            startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this@EditingRecordActivity).toBundle())
+            startActivity(
+                intent,
+                ActivityOptions.makeSceneTransitionAnimation(this@EditingRecordActivity).toBundle()
+            )
         }
 
         val answers = arrayOf(
@@ -91,7 +179,7 @@ class EditingRecordActivity : AppCompatActivity() {
             binding.firstQuestion, binding.secondQuestion, binding.thirdQuestion
         )
 
-        for(i in 0..2) {
+        for (i in 0..2) {
             val chipGroup = questionViews[i].findViewById<ChipGroup>(R.id.chipGroup)
             chipGroup.removeAllViews()
 
@@ -128,7 +216,7 @@ class EditingRecordActivity : AppCompatActivity() {
                             chipGroup.addView(addChip)
                         }
                     }
-                    .setNegativeButton("Отмена") {_, _ ->
+                    .setNegativeButton("Отмена") { _, _ ->
                         addChip.isChecked = false
                     }
                     .show()
@@ -139,7 +227,7 @@ class EditingRecordActivity : AppCompatActivity() {
     }
 
     private fun getBackgroundDrawable(color: EmotionColor): Int {
-        return when(color) {
+        return when (color) {
             EmotionColor.GREEN -> R.drawable.gradient_card_green
             EmotionColor.BLUE -> R.drawable.gradient_card_blue
             EmotionColor.YELLOW -> R.drawable.gradient_card_yellow
@@ -148,7 +236,7 @@ class EditingRecordActivity : AppCompatActivity() {
     }
 
     private fun getTextColor(color: EmotionColor): Int {
-        return when(color) {
+        return when (color) {
             EmotionColor.GREEN -> R.color.light_green
             EmotionColor.BLUE -> R.color.sky_blue
             EmotionColor.YELLOW -> R.color.honey_yellow

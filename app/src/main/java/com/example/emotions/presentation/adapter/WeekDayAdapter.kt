@@ -2,14 +2,13 @@ package com.example.emotions.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.example.emotions.R
 import com.example.emotions.domain.model.Weekday
 import com.example.emotions.presentation.viewholder.WeekDayViewHolder
 
-class WeekDayAdapter: ListAdapter<Weekday, WeekDayViewHolder>(DIFF) {
+class WeekDayAdapter : ListAdapter<Weekday, WeekDayViewHolder>(DIFF) {
 
     companion object {
         private val DIFF = object : DiffUtil.ItemCallback<Weekday>() {
