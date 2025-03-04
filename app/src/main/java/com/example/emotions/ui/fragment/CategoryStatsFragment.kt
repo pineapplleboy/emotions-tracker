@@ -9,10 +9,33 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.emotions.R
 import com.example.emotions.databinding.FragmentCategoryStatsBinding
+import com.example.emotions.domain.model.CategoryPercents
+import com.example.emotions.domain.model.EmotionColor
+import com.example.emotions.domain.model.SavedEmotion
 
 class CategoryStatsFragment : Fragment() {
 
     private lateinit var binding: FragmentCategoryStatsBinding
+
+    private lateinit var percents: CategoryPercents
+
+    companion object {
+        private const val ARG_PERCENTS = "arg_percents"
+        fun newInstance(
+            percents: CategoryPercents
+        ): CategoryStatsFragment {
+            return CategoryStatsFragment().apply {
+                arguments = Bundle().apply {
+                    putParcelable(ARG_PERCENTS, percents)
+                }
+            }
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        percents = arguments?.getParcelable(ARG_PERCENTS) ?: CategoryPercents(0, 0,0, 0)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,10 +49,10 @@ class CategoryStatsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.emptyView.post {
-            scaleCircle(binding.redCircle, binding.redPercent, 10)
-            scaleCircle(binding.greenCircle, binding.greenPercent, 60)
-            scaleCircle(binding.blueCircle, binding.bluePercent, 0)
-            scaleCircle(binding.yellowCircle, binding.yellowPercent, 30)
+            scaleCircle(binding.redCircle, binding.redPercent, percents.red)
+            scaleCircle(binding.greenCircle, binding.greenPercent, percents.green)
+            scaleCircle(binding.blueCircle, binding.bluePercent, percents.blue)
+            scaleCircle(binding.yellowCircle, binding.yellowPercent, percents.yellow)
         }
 
         binding.recordsAmount.text = resources.getQuantityString(R.plurals.records, 1, 1)
@@ -48,6 +71,6 @@ class CategoryStatsFragment : Fragment() {
         layoutParams.height = newSize
         view.layoutParams = layoutParams
 
-        text.text = "${if (percent != 0) percent else ""}%"
+        text.text = if (percent != 0) "${percent}%" else ""
     }
 }

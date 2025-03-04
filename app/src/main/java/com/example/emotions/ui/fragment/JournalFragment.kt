@@ -16,6 +16,7 @@ import com.example.emotions.presentation.SpaceItemDecoration
 import com.example.emotions.presentation.adapter.EmotionListAdapter
 import com.example.emotions.presentation.dpToPx
 import com.example.emotions.ui.activity.AddingEmotionActivity
+import com.example.emotions.ui.activity.EditingRecordActivity
 
 class JournalFragment : Fragment() {
 
@@ -64,7 +65,11 @@ class JournalFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.emotionsRecycler.layoutManager = LinearLayoutManager(requireContext())
-        adapter = EmotionListAdapter()
+        adapter = EmotionListAdapter() {
+            val intent = Intent(this.activity, EditingRecordActivity::class.java)
+            intent.putExtra("id", it)
+            startActivity(intent)
+        }
         binding.emotionsRecycler.adapter = adapter
         binding.emotionsRecycler.addItemDecoration(SpaceItemDecoration(8.dpToPx()))
 

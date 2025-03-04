@@ -10,7 +10,7 @@ import org.junit.runner.RunWith
 class LoginActivityTest {
 
     @Test
-    fun startTest() {
+    fun loginTest() {
         launchActivity()
 
         LoginActivityScreen.checkText("Добро пожаловать")

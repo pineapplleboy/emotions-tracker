@@ -1,6 +1,7 @@
 package com.example.emotions.presentation.viewholder
 
 import android.view.View
+import android.view.View.GONE
 import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
@@ -28,6 +29,10 @@ class WeekDayViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
             params.marginStart = minMargin + guidelinePosition - day.width
             emotions.layoutParams = params
+        }
+
+        if(weekday.emotions.isNotEmpty()) {
+            placeHolder.visibility = GONE
         }
 
         val iconIds = mutableListOf<Int>()

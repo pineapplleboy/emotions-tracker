@@ -14,7 +14,7 @@ abstract class EmotionViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 
     private var id: String? = null
 
-    fun bind(savedEmotion: SavedEmotion) = with(binding) {
+    fun bind(savedEmotion: SavedEmotion, onClick: (String) -> Unit) = with(binding) {
 
         id = savedEmotion.id
 
@@ -23,6 +23,10 @@ abstract class EmotionViewHolder(val view: View) : RecyclerView.ViewHolder(view)
         icon.setImageResource(savedEmotion.icon)
 
         changeColors()
+
+        card.setOnClickListener {
+            onClick(savedEmotion.id)
+        }
     }
 
     open fun changeColors() {}

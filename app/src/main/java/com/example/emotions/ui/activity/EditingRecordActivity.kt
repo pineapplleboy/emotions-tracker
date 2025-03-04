@@ -38,7 +38,6 @@ class EditingRecordActivity : AppCompatActivity() {
         }
 
         val emotionId = intent.getIntExtra("emotionId", 0)
-
         val emotions = listOf(
             Emotion(
                 "Ярость",

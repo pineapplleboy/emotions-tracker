@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.example.emotions.databinding.FragmentStatsPageBinding
+import com.example.emotions.domain.model.CategoryPercents
 import com.example.emotions.presentation.adapter.StatsPagerAdapter
 
 class StatsPageFragment : Fragment() {
@@ -37,7 +38,7 @@ class StatsPageFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val fragments = listOf(
-            CategoryStatsFragment(),
+            CategoryStatsFragment.newInstance(CategoryPercents(10, 50, 30, 10)),
             WeekStatsFragment(),
             FrequencyStatsFragment(),
             MoodStatsFragment()

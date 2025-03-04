@@ -13,7 +13,9 @@ import com.example.emotions.presentation.viewholder.GreenEmotionViewHolder
 import com.example.emotions.presentation.viewholder.RedEmotionViewHolder
 import com.example.emotions.presentation.viewholder.YellowEmotionViewHolder
 
-class EmotionListAdapter : ListAdapter<SavedEmotion, EmotionViewHolder>(DIFF) {
+class EmotionListAdapter(
+    val onClick: (String) -> Unit
+) : ListAdapter<SavedEmotion, EmotionViewHolder>(DIFF) {
 
     private companion object {
         val DIFF = object : DiffUtil.ItemCallback<SavedEmotion>() {
@@ -51,6 +53,8 @@ class EmotionListAdapter : ListAdapter<SavedEmotion, EmotionViewHolder>(DIFF) {
 
     override fun onBindViewHolder(holder: EmotionViewHolder, position: Int) {
         val emotion = getItem(position)
-        holder.bind(emotion)
+        holder.bind(emotion) {
+            onClick(it)
+        }
     }
 }
