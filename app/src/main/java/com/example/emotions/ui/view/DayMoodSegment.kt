@@ -60,6 +60,7 @@ class DayMoodSegment @JvmOverloads constructor(
         requestLayout()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun updateSingleColor(
         view: View,
         textView: TextView,

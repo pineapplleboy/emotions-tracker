@@ -86,11 +86,14 @@ class JournalFragment : Fragment() {
                 ActivityOptions.makeSceneTransitionAnimation(this.activity).toBundle()
             )
         }
-//        val animator = ObjectAnimator.ofFloat(binding.gradientCircle, View.ROTATION, 0f, 360f)
-//        animator.duration = 5000
-//        animator.repeatCount = ValueAnimator.INFINITE
-//        animator.interpolator = android.view.animation.LinearInterpolator()
-//        animator.start()
+
+        if(leftHalf == null && rightHalf == null) {
+            val animator = ObjectAnimator.ofFloat(binding.gradientCircle, View.ROTATION, 0f, 360f)
+            animator.duration = 5000
+            animator.repeatCount = ValueAnimator.INFINITE
+            animator.interpolator = android.view.animation.LinearInterpolator()
+            animator.start()
+        }
 
         binding.coloredLeftHalfCircle.setImageResource(getHalfCircle(leftHalf))
         binding.coloredRightHalfCircle.setImageResource(getHalfCircle(rightHalf))
