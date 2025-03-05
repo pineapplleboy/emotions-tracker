@@ -53,7 +53,6 @@ class DayMoodSegment @JvmOverloads constructor(
 
         if (greenPercent <= 0 && redPercent <= 0 && bluePercent <= 0 && yellowPercent <= 0) {
             binding.gray.visibility = VISIBLE
-            Log.d("PENIS", "HUGE")
         } else {
             binding.gray.visibility = INVISIBLE
         }
