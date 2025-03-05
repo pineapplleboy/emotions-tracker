@@ -69,11 +69,6 @@ class LoginActivity : AppCompatActivity() {
 //            layoutParams.width = (screenHeight * 0.5f).toInt()
 //            layoutParams.height = (screenHeight * 0.5f).toInt()
 
-            layoutParams.topMargin = screenHeight * (-1)
-            layoutParams.bottomMargin = screenHeight * (-1)
-            layoutParams.marginEnd = screenWidth * (-1)
-            layoutParams.marginStart = screenWidth * (-1)
-
             view.layoutParams = layoutParams
         }
     }
